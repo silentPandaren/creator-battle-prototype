@@ -3,17 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creator Battle — MY.GAMES Market</title>
+<title>Creator Battle — War Robots</title>
 <style>
   /*
-   * Design tokens from:
-   * my-games-market-front — palette.scss, semanticColors.scss, spacings.scss, typography.scss
+   * Design tokens — exact copy from:
+   * my-games-market-front-master/styles/variables/
+   *   palette.scss, semanticColors.scss, spacings.scss, typography.scss, media.scss
    */
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700&display=swap');
 
   /* ── Tokens ── */
   :root {
-    /* palette */
+    /* ─── palette.scss ─── */
+    --white-500: #ffffff;
+    --gray-50: #fafafa;
     --gray-100: #dedede;
     --gray-200: #c2c2c2;
     --gray-300: #a7a7a7;
@@ -23,46 +26,119 @@
     --gray-700: #1e1e1e;
     --gray-800: #1c1c1c;
     --gray-900: #141414;
+    --blue-50: #f2f6ff;
+    --blue-100: #c2d7ff;
+    --blue-200: #91b8ff;
+    --blue-300: #6198ff;
     --blue-400: #3079ff;
     --blue-500: #005aff;
     --blue-600: #004cd6;
+    --blue-700: #003dad;
+    --blue-800: #002f84;
+    --blue-900: #00205b;
+    --green-400: #3bcf48;
     --green-500: #0fc31e;
-    /* semantic */
+    --green-600: #0ba518;
+    --red-500: #ff0000;
+    --red-600: #cf0000;
+    --orange-500: #ff5811;
+    --purple-500: #7000ff;
+    --pink-500: #dc0050;
+    --yellow-500: #ffc700;
+    --alpha-white-10: rgba(255,255,255,0.1);
+    --alpha-white-20: rgba(255,255,255,0.2);
+    --alpha-white-40: rgba(255,255,255,0.4);
+    --alpha-white-80: rgba(255,255,255,0.8);
+    --alpha-gray-40: rgba(0,0,0,0.4);
+    --alpha-gray-80: rgba(0,0,0,0.8);
+    /* gold scale (used in warning/debug tag) */
+    --gold1: #2b2111;
+    --gold2: #443111;
+    --gold3: #594214;
+    --gold4: #7c5914;
+    --gold5: #aa7714;
+    --gold6: #d89614;
+    --gold7: #e8b339;
+
+    /* ─── semanticColors.scss ─── */
     --colorBgLayout: #0a0a0a;
+    --colorBgBase: #0a0a0a;
     --colorBgContainer: #141414;
     --colorBgElevated: #1f1f1f;
     --colorBgSpotlight: #2d2d2d;
+    --colorBgMask: rgba(0,0,0,0.65);
+    --colorBgContainerDisabled: rgba(255,255,255,0.08);
+    --colorBgTextHover: rgba(255,255,255,0.12);
+    --colorBgTextActive: rgba(255,255,255,0.18);
     --colorText: #ffffff;
+    --colorTextBase: #ffffff;
     --colorTextSecondary: rgba(255,255,255,0.65);
     --colorTextTertiary: rgba(255,255,255,0.45);
     --colorTextQuaternary: rgba(255,255,255,0.25);
     --colorTextDisabled: rgba(255,255,255,0.25);
+    --colorTextPlaceholder: rgba(255,255,255,0.45);
+    --colorIconSecondary: rgba(255,255,255,0.45);
     --colorBorder: #424242;
     --colorBorderSecondary: #303030;
+    --colorBorderSpotlight: #2d2d2d;
+    --colorBorderFocus: #15325b;
     --colorFill: rgba(255,255,255,0.18);
     --colorFillSecondary: rgba(255,255,255,0.12);
     --colorFillTertiary: rgba(255,255,255,0.08);
-    --colorPrimary: #005aff;
-    --colorPrimaryHover: #3c89e8;
-    --colorLink: #3079ff;
+    --colorFillQuaternary: rgba(255,255,255,0.04);
+    --colorFillAlterSolid: #1d1d1d;
     --colorSplit: rgba(255,255,255,0.1);
-    --colorBgMask: rgba(0,0,0,0.65);
-    /* spacings */
+    --colorPrimary: #005aff;
+    --colorPrimaryBg: #111a2c;
+    --colorPrimaryBgHover: #112545;
+    --colorPrimaryBorder: #15325b;
+    --colorPrimaryHover: #3c89e8;
+    --colorPrimaryActive: #1554ad;
+    --colorPrimaryText: #005aff;
+    --colorLink: #005aff;
+    --colorSuccess: #52c41a;
+    --colorSuccessBg: #162312;
+    --colorWarning: #d89614;
+    --colorWarningBg: #2b2111;
+    --colorWarningBorder: #594214;
+    --colorError: #e0000d;
+    --colorErrorBg: #2a1215;
+    --colorInfo: #005aff;
+
+    /* ─── spacings.scss ─── */
     --base4: 4px;
     --base8: 8px;
     --base12: 12px;
     --base16: 16px;
+    --base20: 20px;
     --base24: 24px;
     --base32: 32px;
     --base48: 48px;
+    --base64: 64px;
     --borderRadius: 8px;
+    --borderRadiusXL: 10px;
+    --borderRadiusLG: 8px;
+    --borderRadiusSM: 4px;
+    --borderRadiusXS: 2px;
     --borderRadiusFull: 9999px;
-    /* typography */
-    --fontWeightNormal: 400;
+    --controlHeight: 32px;
+    --controlHeightLG: 44px;
+    --controlHeightSM: 24px;
+    --controlHeightXS: 16px;
+    --lineWidth: 1px;
+    --lineWidthBold: 2px;
+
+    /* ─── typography.scss ─── */
+    --fontWeightRegular: 450;
     --fontWeightMedium: 550;
-    --fontWeightSemibold: 600;
+    --fontWeightLightbold: 600;
+    --fontWeightSemibold: 650;
     --fontWeightBold: 700;
-    /* teams */
+    --letterSpacingDensest: -0.54px;
+    --letterSpacingDenser: -0.3px;
+    --letterSpacingDense: -0.2px;
+
+    /* ─── teams (custom) ─── */
     --team1: #e84057;
     --team2: #3079ff;
     --team3: #0fc31e;
@@ -81,12 +157,14 @@
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--colorText);
     font-size: 14px;
+    font-weight: var(--fontWeightRegular);
     line-height: 22px;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
-  a { color: var(--colorLink); text-decoration: none; }
+  /* globals.scss: a { color: #3079ff; } */
+  a { color: #3079ff; text-decoration: none; }
   a:hover { color: var(--colorPrimaryHover); }
 
   /* ============================= LAYOUT ============================= */
@@ -108,9 +186,11 @@
     padding: 0 var(--base32);
   }
 
+  /* text-sm-normal: 400, 12px/20px */
   .breadcrumb {
     padding-top: var(--base16);
     font-size: 12px;
+    font-weight: 400;
     line-height: 20px;
     color: var(--colorTextTertiary);
   }
@@ -137,34 +217,32 @@
     overflow: hidden;
     object-fit: cover;
     flex-shrink: 0;
-    background: linear-gradient(135deg, #6c5ce7, #a855f7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
   }
 
+  /* heading-4: font-weight 600, 20px/28px */
   .game-title {
     font-size: 20px;
-    font-weight: var(--fontWeightSemibold);
+    font-weight: var(--fontWeightLightbold);
     line-height: 28px;
     color: var(--colorText);
   }
 
+  /* GameTop/styles.module.scss: .balanceContainer */
   .user-balance {
     display: flex;
     align-items: center;
     padding: 4px 15px;
-    height: 32px;
+    height: var(--controlHeight);
     gap: var(--base8);
     border-radius: var(--borderRadiusFull);
     background: var(--gray-600);
     font-size: 14px;
-    font-weight: 500;
+    font-weight: var(--fontWeightMedium);
     line-height: 22px;
     color: var(--colorText);
     cursor: pointer;
     white-space: nowrap;
+    box-shadow: none;
   }
   .user-balance:hover { background: var(--gray-500); }
   .user-balance .coin { font-size: 16px; }
@@ -176,11 +254,12 @@
     gap: 0;
   }
 
+  /* tabs.scss: ant-tabs tab styling */
   .main-nav a {
     position: relative;
     padding: var(--base12) var(--base16) 14px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: var(--fontWeightMedium);
     line-height: 22px;
     color: var(--colorTextSecondary);
     text-decoration: none;
@@ -206,11 +285,12 @@
     margin-top: var(--base8);
   }
 
+  /* tag.scss: .mg-ui-tag — borderRadius full, text-sm-normal */
   .pill {
     padding: 5px 16px;
     border-radius: var(--borderRadiusFull);
     font-size: 12px;
-    font-weight: var(--fontWeightSemibold);
+    font-weight: var(--fontWeightRegular);
     line-height: 20px;
     font-family: inherit;
     background: var(--colorFillTertiary);
@@ -226,30 +306,34 @@
   }
 
   /* ============================= EVENT HEADER ============================= */
+  /* EventHeader/styles: margin: $base32 0, flex-wrap, space-between, gap $base12 */
   .event-header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     gap: var(--base12);
-    margin: var(--base32) 0 var(--base24);
+    margin: var(--base32) 0;
   }
 
+  /* EventsTab: heading-2 → font-weight 600, EventHeader: font-weight medium(550) */
   .event-title {
     font-size: 30px;
-    font-weight: var(--fontWeightSemibold);
+    font-weight: var(--fontWeightMedium);
     line-height: 38px;
     color: var(--colorText);
   }
 
+  /* TimeStamp: text-sm-semi-bold (600, 12px/20px) */
   .event-expire {
     display: flex;
     align-items: center;
-    gap: var(--base8);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 22px;
+    gap: var(--base4);
+    font-size: 12px;
+    font-weight: var(--fontWeightLightbold);
+    line-height: 20px;
     color: var(--colorTextSecondary);
+    white-space: nowrap;
   }
   .event-expire__dot {
     width: 8px; height: 8px;
@@ -258,10 +342,11 @@
   }
 
   /* ============================= CONTENT CARD ============================= */
+  /* RechargeEventTemplate: .block — padding has 0 bottom; AboutBlock adds borderRadius */
   .block {
     position: relative;
     display: flex;
-    padding: var(--base32);
+    padding: var(--base32) var(--base32) var(--base32) var(--base32);
     flex-direction: column;
     gap: var(--base24);
     background: var(--colorBgContainer);
@@ -269,33 +354,36 @@
     width: 100%;
   }
 
+  /* heading-4: 600, 20px/28px */
   .block-title {
     font-size: 20px;
-    font-weight: var(--fontWeightSemibold);
+    font-weight: var(--fontWeightLightbold);
     line-height: 28px;
     color: var(--colorText);
   }
 
+  /* button.scss: .m-tertiary style pattern */
   .btn-outlined {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 32px;
+    height: var(--controlHeight);
     padding: 0 15px;
     font-family: inherit;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: var(--fontWeightMedium);
     line-height: 22px;
     color: var(--colorText);
-    background: transparent;
-    border: 1px solid var(--colorBorder);
+    background: var(--colorFillSecondary);
+    border: none;
     border-radius: var(--borderRadius);
     cursor: pointer;
+    box-shadow: none;
     transition: all .15s;
   }
   .btn-outlined:hover {
-    border-color: var(--colorPrimaryHover);
     color: var(--colorPrimaryHover);
+    background: var(--colorFillSecondary);
   }
 
   .divider {
@@ -310,9 +398,10 @@
     flex-direction: column;
     gap: var(--base8);
   }
+  /* text-sm-semi-bold: 600, 12px/20px */
   .score-bar-label {
     font-size: 12px;
-    font-weight: var(--fontWeightSemibold);
+    font-weight: var(--fontWeightLightbold);
     line-height: 20px;
     color: var(--colorTextTertiary);
     text-transform: uppercase;
@@ -395,9 +484,10 @@
   .team-card[data-team="1"] .team-card__avatar { border-color: var(--team2); }
   .team-card[data-team="2"] .team-card__avatar { border-color: var(--team3); }
   .team-card[data-team="3"] .team-card__avatar { border-color: var(--team4); }
+  /* text-base-semi-bold: 600, 14px/22px */
   .team-card__name {
     font-size: 14px;
-    font-weight: var(--fontWeightSemibold);
+    font-weight: var(--fontWeightLightbold);
     line-height: 22px;
   }
   .team-card__code {
@@ -405,13 +495,16 @@
     line-height: 20px;
     color: var(--colorTextTertiary);
   }
+  /* Badge: font-size-350 medium, borderRadiusFull */
   .team-card__rank-badge {
-    font-size: 12px;
-    font-weight: var(--fontWeightSemibold);
+    font-size: 14px;
+    font-weight: var(--fontWeightMedium);
     line-height: 20px;
-    color: var(--colorTextTertiary);
-    background: var(--colorFillTertiary);
-    padding: 2px 10px;
+    color: var(--colorTextSecondary);
+    background: rgba(255,255,255,0.18);
+    padding: var(--base8);
+    min-width: 32px;
+    text-align: center;
     border-radius: var(--borderRadiusFull);
   }
 
@@ -434,7 +527,7 @@
   .team-card__score-unit {
     font-size: 12px;
     color: var(--colorTextTertiary);
-    font-weight: 500;
+    font-weight: var(--fontWeightRegular);
   }
 
   /* Donator list */
@@ -444,7 +537,7 @@
     letter-spacing: 1.5px;
     color: var(--colorTextTertiary);
     margin-bottom: var(--base8);
-    font-weight: var(--fontWeightSemibold);
+    font-weight: var(--fontWeightLightbold);
   }
   .donator {
     display: flex;
@@ -471,14 +564,14 @@
   .donator__name {
     flex: 1;
     font-size: 13px;
-    font-weight: var(--fontWeightMedium);
+    font-weight: var(--fontWeightRegular);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   .donator__amount {
     font-size: 13px;
-    font-weight: var(--fontWeightSemibold);
+    font-weight: var(--fontWeightMedium);
     font-variant-numeric: tabular-nums;
     color: var(--colorTextSecondary);
   }
@@ -491,7 +584,7 @@
   /* ============================= FEED ============================= */
   .feed-label {
     font-size: 12px;
-    font-weight: var(--fontWeightSemibold);
+    font-weight: var(--fontWeightLightbold);
     line-height: 20px;
     color: var(--colorTextTertiary);
     text-transform: uppercase;
@@ -529,7 +622,7 @@
     font-size: 13px;
     color: var(--colorTextSecondary);
   }
-  .feed-text strong { font-weight: var(--fontWeightSemibold); color: var(--colorText); }
+  .feed-text strong { font-weight: var(--fontWeightLightbold); color: var(--colorText); }
   .feed-amount {
     font-size: 13px;
     font-weight: var(--fontWeightBold);
@@ -538,7 +631,7 @@
   /* ============================= PRIZES ROW ============================= */
   .prizes-label {
     font-size: 12px;
-    font-weight: var(--fontWeightSemibold);
+    font-weight: var(--fontWeightLightbold);
     line-height: 20px;
     color: var(--colorTextTertiary);
     text-transform: uppercase;
@@ -576,19 +669,20 @@
   .prize-badge__icon { font-size: 15px; }
   .prize-badge__value {
     font-size: 14px;
-    font-weight: var(--fontWeightSemibold);
+    font-weight: var(--fontWeightLightbold);
   }
 
   /* ============================= LEGAL / FOOTER ============================= */
+  /* EventsTab: .legal — text-base-normal (500, 14px/22px), colorTextSecondary */
   .legal {
     margin-top: var(--base32);
     color: var(--colorTextSecondary);
     font-size: 14px;
-    font-weight: 500;
+    font-weight: var(--fontWeightMedium);
     line-height: 22px;
   }
-  .legal a { color: var(--colorLink); }
-  .legal a:visited { color: var(--blue-400); }
+  .legal a { color: #3079ff; }
+  .legal a:visited { color: var(--blue-300); }
   .legal a:hover { text-decoration: underline; }
 
   /* ============================= DEBUG PANEL ============================= */
@@ -604,17 +698,18 @@
     z-index: 100;
     box-shadow: 0 8px 32px rgba(0,0,0,.6);
   }
+  /* tag.scss: color-gold type-bordered pattern */
   .debug-panel__title {
     font-size: 10px;
     font-weight: var(--fontWeightBold);
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: rgba(216,150,20,.6);
-    margin-bottom: var(--base12);
+    color: var(--gold6);
+    margin-bottom: 0;
   }
   .debug-panel__section-label {
     font-size: 10px;
-    font-weight: var(--fontWeightSemibold);
+    font-weight: var(--fontWeightLightbold);
     letter-spacing: .8px;
     text-transform: uppercase;
     color: var(--colorTextTertiary);
@@ -630,7 +725,7 @@
     padding: 4px 0;
     font-family: inherit;
     font-size: 12px;
-    font-weight: var(--fontWeightSemibold);
+    font-weight: var(--fontWeightLightbold);
     line-height: 20px;
     color: var(--colorTextSecondary);
     background: var(--colorFillTertiary);
@@ -667,23 +762,24 @@
     font-family: inherit;
     cursor: pointer;
   }
+  /* tag.scss: color-gold type-bordered pattern */
   .debug-panel__btn {
     width: 100%;
     padding: var(--base8);
     font-family: inherit;
     font-size: 12px;
-    font-weight: var(--fontWeightSemibold);
+    font-weight: var(--fontWeightLightbold);
     line-height: 20px;
-    color: #d89614;
-    background: #2b2111;
-    border: 1px dashed #594214;
+    color: var(--gold6);
+    background: var(--gold1);
+    border: 1px dashed var(--gold3);
     border-radius: var(--borderRadius);
     cursor: pointer;
     transition: all .15s;
   }
   .debug-panel__btn:hover {
-    background: #443111;
-    border-color: #7c5914;
+    background: var(--gold2);
+    border-color: var(--gold4);
   }
   .debug-panel__auto {
     display: flex;
@@ -696,26 +792,161 @@
   }
   .debug-panel__auto input { cursor: pointer; }
 
+  /* ============================= MODAL (About) ============================= */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--colorBgMask);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+  }
+  .modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .modal {
+    background: var(--colorBgElevated);
+    border: 1px solid var(--colorBorderSecondary);
+    border-radius: var(--borderRadiusXL);
+    padding: var(--base32);
+    width: 520px;
+    max-width: calc(100vw - 32px);
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    box-shadow: 0 16px 48px rgba(0,0,0,.5);
+    transform: translateY(12px) scale(.97);
+    transition: transform .25s cubic-bezier(.4,0,.2,1);
+  }
+  .modal-overlay.open .modal {
+    transform: translateY(0) scale(1);
+  }
+  .modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--base24);
+  }
+  .modal__title {
+    font-size: 20px;
+    font-weight: var(--fontWeightLightbold);
+    line-height: 28px;
+    color: var(--colorText);
+  }
+  .modal__close {
+    width: 32px; height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--colorFillTertiary);
+    border: none;
+    border-radius: var(--borderRadiusFull);
+    color: var(--colorTextSecondary);
+    cursor: pointer;
+    font-size: 18px;
+    transition: all .15s;
+    flex-shrink: 0;
+  }
+  .modal__close:hover {
+    background: var(--colorFillSecondary);
+    color: var(--colorText);
+  }
+  .modal__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--base16);
+    color: var(--colorTextSecondary);
+    font-size: 14px;
+    font-weight: var(--fontWeightRegular);
+    line-height: 22px;
+  }
+  .modal__body h3 {
+    font-size: 14px;
+    font-weight: var(--fontWeightLightbold);
+    line-height: 22px;
+    color: var(--colorText);
+    margin-bottom: var(--base4);
+  }
+  .modal__body ol, .modal__body ul {
+    padding-left: var(--base20);
+    display: flex;
+    flex-direction: column;
+    gap: var(--base4);
+  }
+  .modal__body li {
+    line-height: 22px;
+  }
+
+  /* ============================= DEBUG PANEL TOGGLE ============================= */
+  .debug-panel__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+  }
+  .debug-panel__toggle {
+    width: 20px; height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--colorTextTertiary);
+    cursor: pointer;
+    transition: transform .2s ease;
+    padding: 0;
+  }
+  .debug-panel.collapsed .debug-panel__toggle {
+    transform: rotate(180deg);
+  }
+  .debug-panel__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    overflow: hidden;
+    max-height: 500px;
+    transition: max-height .3s ease, opacity .2s ease;
+    opacity: 1;
+  }
+  .debug-panel.collapsed .debug-panel__body {
+    max-height: 0;
+    opacity: 0;
+  }
+  .debug-panel.collapsed {
+    width: auto;
+    min-width: 140px;
+  }
+
   /* ============================= SCROLLBAR ============================= */
   ::-webkit-scrollbar { width: 5px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--colorBorderSecondary); border-radius: 3px; }
 
   /* ============================= RESPONSIVE ============================= */
+  /* media.scss: @mixin tablet { @media (max-width: 999px) } */
   @media (max-width: 999px) {
     .teams[data-count="3"],
     .teams[data-count="4"] { grid-template-columns: repeat(2, 1fr); }
     .event-header { flex-direction: column; align-items: flex-start; }
+    .event-header .event-expire { flex-direction: row; }
   }
 
-  @media (max-width: 599px) {
+  /* media.scss: @mixin mobile { @media (max-width: 499px) } */
+  @media (max-width: 499px) {
     .page-wrap, .header-inner { padding-left: var(--base16); padding-right: var(--base16); }
     .block { padding: var(--base16); }
     .teams { grid-template-columns: 1fr !important; }
     .main-nav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .main-nav::-webkit-scrollbar { display: none; }
     .header-top { flex-wrap: wrap; gap: var(--base8); }
+    /* heading-5: 600, 16px/24px */
     .game-title { font-size: 16px; line-height: 24px; }
+    /* heading-3: 600, 24px/32px */
     .event-title { font-size: 24px; line-height: 32px; }
   }
 </style>
@@ -730,8 +961,8 @@
     </div>
     <div class="header-top">
       <div class="game-info">
-        <div class="game-icon">⚔️</div>
-        <span class="game-title">MY.GAMES Market</span>
+        <img class="game-icon" src="war-robots-logo.png" alt="War Robots">
+        <span class="game-title">War Robots</span>
       </div>
       <div class="user-balance">
         <span class="coin">🍏</span>
@@ -764,9 +995,12 @@
   <!-- Event header -->
   <div class="event-header">
     <h1 class="event-title">Creator Battle</h1>
-    <div class="event-expire">
-      <div class="event-expire__dot"></div>
-      Expires in 3 days
+    <div style="display:flex;align-items:center;gap:var(--base12);">
+      <button class="btn-outlined" onclick="openAbout()">ℹ️ About</button>
+      <div class="event-expire">
+        <div class="event-expire__dot"></div>
+        Expires in 3 days
+      </div>
     </div>
   </div>
 
@@ -810,27 +1044,77 @@
   </div>
 </div>
 
+<!-- ABOUT MODAL -->
+<div class="modal-overlay" id="aboutModal" onclick="closeAbout(event)">
+  <div class="modal">
+    <div class="modal__header">
+      <div class="modal__title">About the Event</div>
+      <button class="modal__close" onclick="closeAbout()" title="Close">✕</button>
+    </div>
+    <div class="modal__body">
+      <div>
+        <h3>What is Creator Battle?</h3>
+        <p>Creator Battle is a competition between your favourite bloggers! Teams earn points based on purchases made with their creator code on MY.GAMES Market.</p>
+      </div>
+      <div>
+        <h3>How it works</h3>
+        <ol>
+          <li>Several bloggers are selected before the event and split into teams.</li>
+          <li>During the event, every purchase made with a blogger's promo code earns points for that blogger's team.</li>
+          <li>The team leaderboard updates in real time — watch the balance of power shift!</li>
+          <li>Within each team, a Top-5 donator ranking shows the most active supporters.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Prizes</h3>
+        <ul>
+          <li>Each team place earns a unique prize pool distributed among the team's top donators.</li>
+          <li>Prizes are awarded after the event ends. Check the prizes table for exact values.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Rules</h3>
+        <ul>
+          <li>Only purchases made during the event period count towards scores.</li>
+          <li>A valid blogger promo code must be applied at checkout.</li>
+          <li>Refunded purchases will be deducted from the team's score.</li>
+          <li>MY.GAMES reserves the right to disqualify participants suspected of fraud.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- DEBUG PANEL -->
-<div class="debug-panel">
-  <div class="debug-panel__title">🛠 Debug Panel</div>
-  <div class="debug-panel__section-label">Teams</div>
-  <div class="debug-panel__row" id="teamCountBtns">
-    <button class="debug-panel__pill active" onclick="setTeamCount(2)">2</button>
-    <button class="debug-panel__pill" onclick="setTeamCount(3)">3</button>
-    <button class="debug-panel__pill" onclick="setTeamCount(4)">4</button>
+<div class="debug-panel" id="debugPanel">
+  <div class="debug-panel__header" onclick="toggleDebugPanel()">
+    <div class="debug-panel__title">🛠 Debug Panel</div>
+    <button class="debug-panel__toggle" title="Toggle panel">
+      <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
   </div>
-  <div class="debug-panel__section-label">Simulate purchase</div>
-  <div class="debug-panel__row">
-    <input class="debug-panel__input" id="buyerName" placeholder="Buyer name">
+  <div class="debug-panel__body">
+    <div style="margin-top:var(--base12)">
+      <div class="debug-panel__section-label">Teams</div>
+      <div class="debug-panel__row" id="teamCountBtns">
+        <button class="debug-panel__pill active" onclick="setTeamCount(2)">2</button>
+        <button class="debug-panel__pill" onclick="setTeamCount(3)">3</button>
+        <button class="debug-panel__pill" onclick="setTeamCount(4)">4</button>
+      </div>
+      <div class="debug-panel__section-label">Simulate purchase</div>
+      <div class="debug-panel__row">
+        <input class="debug-panel__input" id="buyerName" placeholder="Buyer name">
+      </div>
+      <div class="debug-panel__row">
+        <input class="debug-panel__input" id="buyAmount" type="number" placeholder="Amount" value="500" min="1">
+        <select class="debug-panel__select" id="buyTeam"></select>
+      </div>
+      <button class="debug-panel__btn" onclick="manualPurchase()">💸 Purchase</button>
+      <label class="debug-panel__auto">
+        <input type="checkbox" id="autoMode" onchange="toggleAutoMode()"> Auto mode (random purchases)
+      </label>
+    </div>
   </div>
-  <div class="debug-panel__row">
-    <input class="debug-panel__input" id="buyAmount" type="number" placeholder="Amount" value="500" min="1">
-    <select class="debug-panel__select" id="buyTeam"></select>
-  </div>
-  <button class="debug-panel__btn" onclick="manualPurchase()">💸 Purchase</button>
-  <label class="debug-panel__auto">
-    <input type="checkbox" id="autoMode" onchange="toggleAutoMode()"> Auto mode (random purchases)
-  </label>
 </div>
 
 <script>
@@ -838,10 +1122,10 @@
 // DATA
 // ============================
 const BLOGGERS = [
-  { name: 'JokerLive',    code: 'JOKER',    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=joker&backgroundColor=b6e3f4' },
-  { name: 'MashkaGG',     code: 'MASHKA',   avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=mashka&backgroundColor=c0aede' },
-  { name: 'ProDenGaming', code: 'PRODEN',   avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=proden&backgroundColor=d1f4d1' },
-  { name: 'NikitosPlay',  code: 'NIKITOS',  avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=nikitos&backgroundColor=ffd5dc' },
+  { name: 'PilotStorm',   code: 'STORM',    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=storm&backgroundColor=b6e3f4' },
+  { name: 'PilotVortex',  code: 'VORTEX',   avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=vortex&backgroundColor=c0aede' },
+  { name: 'PilotBlaze',   code: 'BLAZE',    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=blaze&backgroundColor=d1f4d1' },
+  { name: 'PilotNova',    code: 'NOVA',     avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=nova&backgroundColor=ffd5dc' },
 ];
 
 const TEAM_COLORS = ['var(--team1)', 'var(--team2)', 'var(--team3)', 'var(--team4)'];
@@ -1030,6 +1314,31 @@ function toggleAutoMode() {
     clearInterval(autoInterval);
     autoInterval = null;
   }
+}
+
+// ============================
+// ABOUT MODAL
+// ============================
+function openAbout() {
+  document.getElementById('aboutModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAbout(e) {
+  if (e && e.target !== e.currentTarget) return; // only close on overlay click
+  document.getElementById('aboutModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeAbout();
+});
+
+// ============================
+// DEBUG PANEL TOGGLE
+// ============================
+function toggleDebugPanel() {
+  document.getElementById('debugPanel').classList.toggle('collapsed');
 }
 
 // ====== BOOT ======
