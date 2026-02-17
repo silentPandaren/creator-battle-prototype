@@ -1106,7 +1106,7 @@
         <input class="debug-panel__input" id="buyerName" placeholder="Buyer name">
       </div>
       <div class="debug-panel__row">
-        <input class="debug-panel__input" id="buyAmount" type="number" placeholder="Amount" value="500" min="1">
+        <input class="debug-panel__input" id="buyAmount" type="number" placeholder="Points" value="500" min="1">
         <select class="debug-panel__select" id="buyTeam"></select>
       </div>
       <button class="debug-panel__btn" onclick="manualPurchase()">💸 Purchase</button>
@@ -1235,7 +1235,7 @@ function renderTeams() {
             <div class="donator">
               <div class="donator__rank ${j === 0 ? 'gold' : j === 1 ? 'silver' : j === 2 ? 'bronze' : ''}">${j + 1}</div>
               <div class="donator__name">${d.name}</div>
-              <div class="donator__amount">${formatNumber(d.amount)} ₽</div>
+              <div class="donator__amount">${formatNumber(d.amount)} points</div>
             </div>
           `).join('')}
         </div>
@@ -1250,7 +1250,7 @@ function renderFeed() {
     <div class="feed-item">
       <div class="feed-dot" style="background:${TEAM_COLORS[item.teamIdx]}"></div>
       <div class="feed-text"><strong>${item.buyerName}</strong> purchased with code <strong>${teams[item.teamIdx].blogger.code}</strong></div>
-      <div class="feed-amount" style="color:${TEAM_COLORS[item.teamIdx]}">+${formatNumber(item.amount)}</div>
+      <div class="feed-amount" style="color:${TEAM_COLORS[item.teamIdx]}">+${formatNumber(item.amount)} points</div>
     </div>
   `).join('');
 }
